@@ -1,35 +1,33 @@
 import React from "react";
 import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
-import Header from "../header";
 
 export default function SuccessCliente() {
     return (
-        <View style={styles.container}>
-            <Header />
-    
+        <View style={styles.container}>    
             <View style={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
     
                 <View style={styles.successContainer}>
                     <Image
                         style={styles.verifyImage} 
-                        source={require('../../images/verify.png')}
+                        source={require('../../images/verify2.jpg')}
                     />
 
                     <Text style={styles.newClientSuccess}>Cliente inserido com sucesso</Text>
 
-                    <TouchableOpacity>
-                        <Text>Adicionar outro</Text>
+                    <TouchableOpacity style={styles.addOtherCostumer}>
+                        <Text style={styles.addOtherTitle}>Adicionar outro</Text>
                     </TouchableOpacity>
                 </View>
             </View>            
         </View>
     )
 }
-
+//falta voltar para pagina de clientes
 const styles = StyleSheet.create({
     container: {
         height: '100%',
+        backgroundColor: '#fff',
     },
 
     formContainer: {
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
 
     newClientTitle: {
         marginLeft: 20,
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: '500',
         marginBottom: 25,
     },
@@ -48,14 +46,29 @@ const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center'
     },
 
     verifyImage: {
-        width: 72,
-        height: 72,
+        width: 144,
+        height: 144,
     },
 
     newClientSuccess: {
-        fontSize: 28,
+        marginTop: 20,
+        fontSize: 26,
+        textAlign: 'center',
+    },
+
+    addOtherCostumer: {
+        marginTop: 40,
+        backgroundColor: '#0d6efd',
+        padding: 8,
+        paddingHorizontal: 12,
+        borderRadius: 5,
+    },
+
+    addOtherTitle: {
+        color: '#fff'
     }
 })

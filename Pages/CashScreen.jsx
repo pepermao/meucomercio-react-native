@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import Caixa from '../components/Caixa'
 
-const CashScreen = ({navigation}) => {
+const CashScreen = () => {
     return (
         <View>
             <Caixa />

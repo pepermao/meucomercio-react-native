@@ -1,12 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
-import Header from "../header";
 
 export default function Cliente({ navigation }) {
     return (
-        <View style={styles.container}>
-            <Header />
-    
+        <View style={styles.container}>    
             <View style={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
     
@@ -29,7 +26,6 @@ export default function Cliente({ navigation }) {
                     navigation.navigate('SuccessClient')}>
                         <Text style={styles.btnText}>Inserir</Text>
             </TouchableOpacity>
-            
         </View>
     )
 }
@@ -37,6 +33,7 @@ export default function Cliente({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
+        backgroundColor: '#fff',
     },
 
     formContainer: {
@@ -46,7 +43,7 @@ const styles = StyleSheet.create({
 
     newClientTitle: {
         marginLeft: 20,
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: '500',
         marginBottom: 25,
     },

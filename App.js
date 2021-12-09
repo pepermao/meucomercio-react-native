@@ -5,8 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import CashScreen from './Pages/CashScreen';
-import Cliente from './components/Clientes/Cliente';
+import Cliente from './Pages/ClientScreen';
 import SuccessClient from './components/Clientes/SuccessClient'
+import Product from './Pages/Product'
+import StockScreen from './Pages/Stock'
 
 
 
@@ -32,7 +34,9 @@ function DrawerNavegation() {
         drawerStyle: {
           backgroundColor: '#dddddd'
       }}} 
-      initialRouteName="Clientes">
+      initialRouteName="Caixa">
+      <Drawer.Screen name="Estoque" component={StockScreen} />
+      <Drawer.Screen name="Produtos" component={Product} />
       <Drawer.Screen name="Caixa" component={CashScreen} />
       <Drawer.Screen name="Clientes" component={ClienteTabScreen} />
     </Drawer.Navigator>

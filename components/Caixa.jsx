@@ -1,13 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Header from './header';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 
 export default function Caixa() {
     return (
-        <View>
-            <Header />
+        <ScrollView>
             <View style={styles.cash}>
-                <Text style={styles.cash_title}>Caixa</Text>
 
                 <Text style={styles.cash_total}>Total em caixa</Text>
                 <Text style={styles.current_value}>R$ 00.0</Text>
@@ -33,7 +30,7 @@ export default function Caixa() {
                     <Text>Receber</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
