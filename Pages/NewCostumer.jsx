@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView,} from 'react-native'
 
 export default function Cliente({ navigation }) {
     return (
-        <View style={styles.container}>    
-            <View style={styles.formContainer}>
+        <View style={{backgroundColor: '#fff'}}>    
+            <ScrollView style={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
     
                 <Text style={styles.formSubtitle}>Nome</Text>
@@ -18,7 +18,7 @@ export default function Cliente({ navigation }) {
     
                 <Text style={styles.formSubtitle}>CPF</Text>
                 <TextInput style={styles.formInput} />
-            </View>
+            </ScrollView>
 
             <TouchableOpacity 
                 style={styles.insertBtn}
@@ -31,13 +31,9 @@ export default function Cliente({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: '100%',
-        backgroundColor: '#fff',
-    },
-
     formContainer: {
         paddingTop: 40,
+        height: '100%',
         paddingHorizontal: 20,
     },
 
@@ -46,10 +42,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         marginBottom: 25,
-    },
-
-    formSubtitle: {
-
     },
 
     formInput: {

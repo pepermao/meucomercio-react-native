@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
 
-export default function SuccessCliente() {
+export default function SuccessCliente({navigation}) {
     return (
         <View style={styles.container}>    
             <View style={styles.formContainer}>
@@ -15,7 +15,10 @@ export default function SuccessCliente() {
 
                     <Text style={styles.newClientSuccess}>Cliente inserido com sucesso</Text>
 
-                    <TouchableOpacity style={styles.addOtherCostumer}>
+                    <TouchableOpacity 
+                        onPress={navigation.goBack}
+                        style={styles.addOtherCostumer}
+                    >
                         <Text style={styles.addOtherTitle}>Adicionar outro</Text>
                     </TouchableOpacity>
                 </View>
