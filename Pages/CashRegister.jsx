@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CloseModal from '../components/CashRegister/CloseModal';
-import MoveModal from '../components/CashRegister/MoveModal'
+import MoveModal from '../components/CashRegister/MoveModal';
 
 
 const CashScreen = ({ navigation }) => {
@@ -20,7 +20,7 @@ const CashScreen = ({ navigation }) => {
                 }}
             />
 
-            <MoveModal 
+            <MoveModal
                 visible={moveModalVisible}
                 onRequestClose={() => {
                     setMoveModalVisible(!moveModalVisible);
@@ -29,8 +29,9 @@ const CashScreen = ({ navigation }) => {
                     setMoveModalVisible(false);
                 }}
             />
-            
-            <View style={styles.cash}>
+                        
+            <View style={{paddingTop: 40, paddingLeft: 40,}}>
+                <Text style={{fontSize: 22, fontWeight: '700',}}>Caixa</Text>
                 <Text style={styles.cash_total}>Total em caixa</Text>
                 <Text style={styles.current_value}>R$ 00.0</Text>
                 <Text style={styles.cash_initial}>Valor Inicial</Text>
@@ -87,45 +88,37 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    cash: {
-        paddingTop: 40,
-        paddingLeft: 40,
-    },
-
-    cash_title: {
+    initial_value: {
         fontSize: 20,
-        fontWeight: '400',
+        color: '#595959',
+        fontWeight: '700',
     },
 
     cash_total: {
         marginTop: 50,
         fontSize: 20,
-        fontWeight: '200',
+        color: '#595959',
     },
 
     current_value: {
-        fontSize: 40,
+        fontSize: 44,
         fontWeight: '700',
+        color: '#595959',
     },
 
     cash_initial: {
         marginTop: 75,
         fontSize: 20,
-        fontWeight: '200',
-    },
-
-    initial_value: {
-        fontSize: 20,
-        fontWeight: '500',
+        color: '#595959',
     },
 
     action_btns: {
-        marginTop: 40,
-        height: 100,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 40,
+        height: 100,
     },
 
     btn: {
@@ -136,7 +129,8 @@ const styles = StyleSheet.create({
         borderColor: '#d8d8d8',
         width: '25%',
         height: '100%',
-    },
+        borderRadius: 5,
+    },//adicionar active
 
     modalView: {
         marginTop: '45%',

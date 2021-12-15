@@ -1,32 +1,12 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import  { Picker }  from  '@react-native-picker/picker' ;
-import { MaterialIcons } from '@expo/vector-icons'
 
-const Stock = ({ navigation }) => {
+const EditProduct = () => {
     return (
         <View style={{backgroundColor: '#fff',}}>
             <ScrollView style={styles.container}>
-                <Text style={styles.mainTitle}>Adicionar novo item ao estoque</Text>
-
-                <View>
-                    <Text>Estoque</Text>
-                    <View style={styles.stockPicker}>
-                        <Picker>
-                            <Picker.Item label="Principal" value="Principal" />
-                        </Picker>
-                    </View>
-                </View>
-
-                <View>
-                    <Text>Código</Text>
-                    <View style={styles.dInputContainer}>
-                        <TextInput style={styles.dInput} />
-                        <TouchableOpacity style={styles.searchBtn}>
-                            <MaterialIcons name="search" size={20} color="#fff" />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                <Text style={styles.mainTitle}>Editar Produto</Text>
 
                 <View>
                     <Text>Marcas</Text>
@@ -85,16 +65,16 @@ const Stock = ({ navigation }) => {
 
             <TouchableOpacity
                 onPress={() => 
-                    navigation.navigate('SuccessProduct')}
+                    navigation.goBack}
                 style={styles.insertBtn}
             >
-                <Text style={styles.btnText}>Inserir</Text>
+                <Text style={styles.btnText}>Editar</Text>
             </TouchableOpacity>
         </View>
     )
 }
 
-export default Stock
+export default EditProduct
 
 const styles = StyleSheet.create({
     container: {
@@ -108,7 +88,6 @@ const styles = StyleSheet.create({
         margin: 25,
         marginVertical: 25,
         fontSize: 22,
-        fontWeight: '700',
     },
 
     stockPicker: {

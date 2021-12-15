@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export default function SuccessCliente({navigation}) {
     return (
@@ -8,11 +9,7 @@ export default function SuccessCliente({navigation}) {
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
     
                 <View style={styles.successContainer}>
-                    <Image
-                        style={styles.verifyImage} 
-                        source={require('../../images/verify2.jpg')}
-                    />
-
+                    <MaterialIcons name="check-circle" size={90} color="#00dd04" />
                     <Text style={styles.newClientSuccess}>Cliente inserido com sucesso</Text>
 
                     <TouchableOpacity 
@@ -41,8 +38,8 @@ const styles = StyleSheet.create({
     newClientTitle: {
         marginLeft: 20,
         fontSize: 20,
-        fontWeight: '500',
         marginBottom: 25,
+        fontWeight: '700',
     },
 
     successContainer: {
@@ -59,8 +56,9 @@ const styles = StyleSheet.create({
 
     newClientSuccess: {
         marginTop: 20,
-        fontSize: 26,
+        fontSize: 24,
         textAlign: 'center',
+        padding: 10,
     },
 
     addOtherCostumer: {

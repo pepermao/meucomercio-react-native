@@ -1,22 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView,} from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
-export default function Cliente({ navigation }) {
+const NewCostumer = ({ navigation }) => {
     return (
         <View style={{backgroundColor: '#fff'}}>    
             <ScrollView style={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
-    
-                <Text style={styles.formSubtitle}>Nome</Text>
-                <TextInput style={styles.formInput} />
                 
-                <Text style={styles.formSubtitle}>Telefone</Text>
+                <Text>Nome</Text>
+                <TextInput style={styles.formInput} />
+
+                <Text>Telefone</Text>
                 <TextInput style={styles.formInput} />
     
-                <Text style={styles.formSubtitle}>Endereço</Text>
+                <Text>Endereço</Text>
                 <TextInput style={styles.formInput} />
     
-                <Text style={styles.formSubtitle}>CPF</Text>
+                <Text>CPF</Text>
                 <TextInput style={styles.formInput} />
             </ScrollView>
 
@@ -30,6 +30,8 @@ export default function Cliente({ navigation }) {
     )
 }
 
+export default NewCostumer
+
 const styles = StyleSheet.create({
     formContainer: {
         paddingTop: 40,
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     newClientTitle: {
         marginLeft: 20,
         fontSize: 20,
-        fontWeight: '500',
+        fontWeight: '700',
         marginBottom: 25,
     },
 

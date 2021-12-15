@@ -1,7 +1,7 @@
 import React from 'react';
-import { TextInput, StyleSheet, Text, View, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput } from 'react-native';
 
-export default function Caixa() {
+const Receivements = () => {
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.receiptsTitle}>Recebimentos</Text>
@@ -10,14 +10,17 @@ export default function Caixa() {
     );
 }
 
+export default Receivements
+
 const styles = StyleSheet.create({
     container: {
         padding: 20,
+        paddingVertical: 40,
         backgroundColor: '#fff'
     },
 
     receiptsTitle: {
-        marginLeft: 10,
+        marginLeft: 20,
         fontSize: 22,
         fontWeight: '700'
     },
