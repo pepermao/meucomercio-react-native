@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import  { Picker }  from  '@react-native-picker/picker' ;
 import { MaterialIcons } from '@expo/vector-icons'
+import CurrencyInput from 'react-native-currency-input';
+
+
 
 const Stock = ({ navigation }) => {
+    const [ product, setProduct ] = useState({
+        codigo: 0,
+        marca: ' '
+    })
+    const [price, setPrice] = React.useState();
+    const [costPrice, setCostPrice] = React.useState();
+
     return (
         <View style={{backgroundColor: '#fff',}}>
             <ScrollView style={styles.container}>
@@ -30,7 +40,10 @@ const Stock = ({ navigation }) => {
 
                 <View>
                     <Text>Marcas</Text>
-                    <TextInput style={styles.stockInput}/>
+                    <TextInput
+                        value={product.marca}
+                        onChange={(text) => setProduct({ marca: text.target.value})}
+                        style={styles.stockInput}/>
                 </View>
 
                 <View>
@@ -69,12 +82,28 @@ const Stock = ({ navigation }) => {
 
                 <View>
                     <Text>Preço</Text>
-                    <TextInput style={styles.stockInput}/>
+                    <CurrencyInput
+                        value={price}
+                        onChangeValue={setPrice}
+                        prefix="R$"
+                        delimiter="."
+                        separator=","
+                        precision={2}
+                        style={styles.stockInput}
+                    />
                 </View>
 
                 <View>
                     <Text>Preço de custo</Text>
-                    <TextInput style={styles.stockInput}/>
+                    <CurrencyInput
+                        value={costPrice}
+                        onChangeValue={setCostPrice}
+                        prefix="R$"
+                        delimiter="."
+                        separator=","
+                        precision={2}
+                        style={styles.stockInput}
+                    />
                 </View>
 
                 <View style={{marginBottom: 75,}}>
@@ -84,8 +113,10 @@ const Stock = ({ navigation }) => {
             </ScrollView>
 
             <TouchableOpacity
-                onPress={() => 
-                    navigation.navigate('SuccessProduct')}
+                onPress={() => { 
+                    console.warn(product)
+                }}
+                    // navigation.navigate('SuccessProduct')}
                 style={styles.insertBtn}
             >
                 <Text style={styles.btnText}>Inserir</Text>

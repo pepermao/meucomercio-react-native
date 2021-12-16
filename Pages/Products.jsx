@@ -1,9 +1,9 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, View, } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native';
 import  { Picker }  from  '@react-native-picker/picker';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import ProductsData from '../Data/Products'
 
-const Products = ({ navigation }) => {
+const ProductsScreen = ({navigation}) => {
     return (
         <ScrollView style={{backgroundColor: '#fff'}}>
             <View style={styles.container}>
@@ -14,18 +14,31 @@ const Products = ({ navigation }) => {
                         <Picker.Item label="Principal" value="main" />
                     </Picker>
                 </View>
-                
-                {[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ].map(item => {
+
+                {/* <FlatList 
+                    data={ProductsData}
+                    renderItem={({ item }) => 
+                        <ProductsContainer 
+                            key={item.key}
+                            name={item.name}
+                            description={item.description}
+                            qtd={item.qtd}
+                            price={item.price}
+                        />
+                    }
+                    keyExtractor={item => item.id}
+                /> */}
+                {ProductsData.map(product => {
                     return (
-                        <View key={item} style={styles.productContainer}>
+                        <View key={product.key} style={styles.productContainer}>
                             <View style={{display: 'flex', justifyContent: 'center', width: '40%', padding: 2}}>
-                                <Text style={styles.productName}>Produto {item}</Text>
-                                <Text style={styles.productDescription}>Descrição Produto {item}</Text>
+                                <Text style={styles.productName}>{product.name}</Text>
+                                <Text style={styles.productDescription}>{product.description}</Text>
                             </View>
 
                             <View style={{display: 'flex', justifyContent: 'center', width: '35%', padding: 2}}>
-                                <Text>Qtd em estoque: {item}</Text>
-                                <Text style={{fontWeight: 'bold',}}>Preço: R$30</Text>
+                                <Text>Qtd em estoque: {product.qtd}</Text>
+                                <Text style={{fontWeight: 'bold',}}>Preço: R${product.price.toFixed(2)}</Text>
                             </View>
 
                             <View style={{display: 'flex', justifyContent: 'center', width: '25%', padding: 2}}>
@@ -40,7 +53,7 @@ const Products = ({ navigation }) => {
 
                                 <TouchableOpacity
                                     onPress={() => {
-                                        navigation.navigate('ProductEdit')
+                                        navigation.navigate('EditProductStackScreen')
                                     }}    
                                     style={styles.sellBtn}
                                 >
@@ -52,9 +65,9 @@ const Products = ({ navigation }) => {
             </View>
         </ScrollView>
     )
-}
+}// usar flatList e ListEmptyComponent
 
-export default Products
+export default ProductsScreen
 
 const styles = StyleSheet.create({
     container: {

@@ -1,24 +1,58 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
+import  { Picker }  from  '@react-native-picker/picker' ;
+import ProductsData from '../../Data/Products'
 import { FlatList } from "react-native-gesture-handler";
-import CartScreen from '../components/CashRegister/CartScreen'
+import ProductsContainer from '../../components/CashRegister/CartProducts'
 
 const Cart = () => {
     return (
-        <View style={{backgroundColor: '#fff'}}>
+        <View>
+            <Text style={styles.cartTitle}>Inserir nova venda</Text>
+
+            <View style={styles.searchProducts}>
+                <Text>Procure um produto</Text>
+                <TextInput placeholder="Pesquise um produto" style={styles.searchInput} />
+                <View style={styles.stockPicker}>
+                    <Picker>
+                        <Picker.Item label="Principal" value="Principal" />
+                    </Picker>
+                </View>
+            </View>
+
             <FlatList 
-                data={[{id: 1}]}
-                renderItem={() => <CartScreen />}
-                style={styles.formContainer}
+                data={ProductsData}
+                renderItem={({ item }) => 
+                    <ProductsContainer 
+                        key={item.key}
+                        name={item.name}
+                        description={item.description}
+                        qtd={item.qtd}
+                        price={item.price}
+                    />
+                }
                 keyExtractor={item => item.id}
+                style={{height: 270}}
             />
 
-            <View style={styles.footer}>
-                <View style={styles.footerTotal}>
-                    <Text style={{fontSize: 18}}>Total:</Text>
-                    <Text style={{fontSize: 18, fontWeight: '700'}}> R$ 0</Text>
+            <View style={{marginTop: 30,}}>
+                <Text>Nome do Cliente</Text>
+                <TextInput style={styles.defaultInput}/>
+            </View>
+
+            <View style={styles.paymentContainer}>
+                <Text style={{width: '100%', marginBottom: 10,}}>Método de Pagamento</Text>
+                <View style={styles.formPayment}>
+                    <Picker>
+                        <Picker.Item label="Dinheiro" value="Dinheiro" />
+                    </Picker>
                 </View>
-                <Text style={styles.footerDiscount}>Desconto: R$ 0</Text>
+
+                <View style={styles.installments}>
+                    <Picker>
+                        <Picker.Item label="Parcelamento" value="Parcelamento" />
+                    </Picker>
+                </View>
             </View>
         </View>
     )

@@ -23,8 +23,9 @@ export default function DrawerNavigation() {
                 },
                 headerTintColor: '#fff',
                 drawerActiveBackgroundColor: '#e6f6ff',
-                headerStyle: { backgroundColor: '#386ba6', height: 90},
-                headerTitle: () => <Header />
+                headerStyle: { backgroundColor: '#386ba6', height: 80},
+                headerTitle: () => <Header />,
+
             }}
                 initialRouteName="Caixa"
             >

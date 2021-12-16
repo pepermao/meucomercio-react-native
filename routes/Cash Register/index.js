@@ -9,10 +9,14 @@ export default function CashStackScreen () {
     const CashStack = createStackNavigator()
 
     return(
-        <CashStack.Navigator>
-        <CashStack.Screen options={{ headerShown: false }} name="CashScreen" component={CashScreen} />
-        <CashStack.Screen options={{ headerShown: false }} name="ReceiptsScreen" component={ReceiptsScreen} />
-        <CashStack.Screen options={{ headerShown: false }} name="Cart" component={Cart} />
+        <CashStack.Navigator 
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <CashStack.Screen name="CashScreen" component={CashScreen} />
+            <CashStack.Screen name="ReceiptsScreen" component={ReceiptsScreen} />
+            <CashStack.Screen name="Cart" component={Cart} />
         </CashStack.Navigator>
     )
 }

@@ -8,9 +8,13 @@ export default function CostumerStackScreen() {
     const CostumerStack = createStackNavigator()
     
     return(
-        <CostumerStack.Navigator>
-        <CostumerStack.Screen options={{ headerShown: false }} name="Cliente" component={Cliente} />
-        <CostumerStack.Screen options={{ headerShown: false }} name="SuccessClient" component={SuccessClient} />
+        <CostumerStack.Navigator 
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <CostumerStack.Screen name="Cliente" component={Cliente} />
+            <CostumerStack.Screen name="SuccessClient" component={SuccessClient} />
         </CostumerStack.Navigator>
     )
 }

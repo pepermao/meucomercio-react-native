@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import  { Picker }  from  '@react-native-picker/picker' ;
 
-const EditProduct = () => {
+const EditProduct = ({navigation}) => {
     return (
         <View style={{backgroundColor: '#fff',}}>
             <ScrollView style={styles.container}>
@@ -65,7 +65,7 @@ const EditProduct = () => {
 
             <TouchableOpacity
                 onPress={() => 
-                    navigation.goBack}
+                    navigation.navigate('SuccessEdit')}
                 style={styles.insertBtn}
             >
                 <Text style={styles.btnText}>Editar</Text>

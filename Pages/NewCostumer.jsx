@@ -3,15 +3,16 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 
 
 const NewCostumer = ({ navigation }) => {
     return (
-        <View style={{backgroundColor: '#fff'}}>    
-            <ScrollView style={styles.formContainer}>
+        <View style={{backgroundColor: '#fff', height: '100%',}}>    
+            <ScrollView contentContainerStyle={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
                 
+
                 <Text>Nome</Text>
                 <TextInput style={styles.formInput} />
 
                 <Text>Telefone</Text>
-                <TextInput style={styles.formInput} />
+                <TextInput keyboardType="number-pad" style={styles.formInput}/>
     
                 <Text>Endereço</Text>
                 <TextInput style={styles.formInput} />
@@ -35,8 +36,8 @@ export default NewCostumer
 const styles = StyleSheet.create({
     formContainer: {
         paddingTop: 40,
-        height: '100%',
         paddingHorizontal: 20,
+        paddingBottom: 80,
     },
 
     newClientTitle: {
