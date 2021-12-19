@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const Products = ({key, name, description, qtd, price}) => {
+const Products = ({ name, description, qtd, price}) => {
     return(
         <View style={styles.productContainer}>
             <View style={{display: 'flex', justifyContent: 'center', width: '40%', padding: 2}}>

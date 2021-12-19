@@ -7,7 +7,6 @@ const NewCostumer = ({ navigation }) => {
             <ScrollView contentContainerStyle={styles.formContainer}>
                 <Text style={styles.newClientTitle}>Inserir um novo cliente</Text>
                 
-
                 <Text>Nome</Text>
                 <TextInput style={styles.formInput} />
 

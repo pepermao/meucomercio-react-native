@@ -1,9 +1,32 @@
-import React from 'react';
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import MoneyInput from 'react-native-money-input'
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import  Modal  from "react-native-modal" ;
 
-const CloseCash = ({ visible, onRequestClose, closeModal }) => {
+const CloseCash = ({ navigation, visible, onRequestClose, closeModal, currentValue }) => {
+    const [sobraOuFalta, setSobraOuFalta] = useState('')
+    const [balanceValue, setBalanceValue] = useState(0)
+    const [valorAoFechar, setValorAoFechar] = useState(0)
+
+    const Balance = (e) => {
+        setValorAoFechar(e)
+        setBalanceValue(e - currentValue)
+        VerificaSobraOuFalta()
+    }
+
+    const VerificaSobraOuFalta = () => {
+        if(balanceValue == 0) {
+            setSobraOuFalta('Ok')
+        }
+
+        else if(balanceValue > 0) {
+            setSobraOuFalta('Sobra')
+        }
+
+        else if(balanceValue < 0) {
+            setSobraOuFalta('Falta')
+        }
+    }
+    
     return (
         <View>
             <Modal
@@ -16,8 +39,15 @@ const CloseCash = ({ visible, onRequestClose, closeModal }) => {
                 <View style={styles.modalView}>
                     <Text style={styles.modalTitle}>Fechamento do Caixa</Text>
                     <View style={styles.containerBalance}>
-                        <Text style={styles.modalBalance}>O saldo do caixa é de R$ 250.4, digite o saldo real para balanço</Text>
-                        <MoneyInput style={styles.modalMoneyInput} />
+                        <Text style={styles.modalBalance}>O saldo do caixa é de R$ {currentValue.toFixed(2)}, digite o saldo real para balanço</Text>
+                        <TextInput
+                            keyboardType="number-pad"
+                            placeholder="R$ 0.00"
+                            onChangeText={(e) => Balance(e)}
+                            style={styles.modalMoneyInput}
+                        />
+                        
+                        <Text>{sobraOuFalta} de R$ {balanceValue}</Text>
                     </View>
                     
                     <View style={styles.modalBtns}>
@@ -32,7 +62,9 @@ const CloseCash = ({ visible, onRequestClose, closeModal }) => {
 
                         <TouchableOpacity
                             onPress={() => {
+                                //passar o valor que o caixa foi fechado
                                 closeModal()
+                                navigation.navigate('CashClosed')
                             }}
                             style={styles.modalOkBtn}
                         >
@@ -52,7 +84,6 @@ const styles = StyleSheet.create({
         marginTop: 80,
         backgroundColor: 'rgb(247, 247, 247)',
         width: '100%',
-        height: '48%',
         borderRadius: 10,
         paddingVertical: 15,
     },
@@ -88,7 +119,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        padding: 20,
+        padding: 10,
+        paddingBottom: 0,
     },
 
     modalCancelBtn: {

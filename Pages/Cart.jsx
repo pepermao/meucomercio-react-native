@@ -1,26 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native'
-import { FlatList } from "react-native-gesture-handler";
-import CartScreen from '../components/CashRegister/CartScreen'
+import { StyleSheet, FlatList } from 'react-native'
+import CartScreen from '../components/CashRegister/CartScreenMinimize'
 
 const Cart = () => {
     return (
-        <View style={{backgroundColor: '#fff'}}>
-            <FlatList 
-                data={[{id: 1}]}
-                renderItem={() => <CartScreen />}
-                style={styles.formContainer}
-                keyExtractor={item => item.id}
-            />
-
-            <View style={styles.footer}>
-                <View style={styles.footerTotal}>
-                    <Text style={{fontSize: 18}}>Total:</Text>
-                    <Text style={{fontSize: 18, fontWeight: '700'}}> R$ 0</Text>
-                </View>
-                <Text style={styles.footerDiscount}>Desconto: R$ 0</Text>
-            </View>
-        </View>
+        <FlatList 
+            data={[{id: 1}]}
+            renderItem={() => <CartScreen />}
+            style={styles.formContainer}
+            keyExtractor={item => item.id}
+        />
     )
 }
 
@@ -28,133 +17,7 @@ export default Cart
 
 const styles = StyleSheet.create({
     formContainer: {
-        paddingTop: 20,
         height: '100%',
-        paddingHorizontal: 20,
+        backgroundColor: '#fff',
     },
-
-    cartTitle: {
-        width: '100%',
-        marginLeft: 20,
-        fontSize: 20,
-        fontWeight: '700',
-        marginBottom: 25,
-    },
-
-    searchProducts: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-    },
-
-    searchInput: {
-        width: '75%',
-        padding: 8,
-        marginVertical: 10,
-        borderWidth: 1,
-        borderColor: '#d4d4d4',
-    },
-
-    stockPicker: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '25%',
-        borderWidth: 1,
-        borderColor: '#d4d4d4',
-        height: 46,
-        borderLeftWidth: 0,
-    }, //search-stock-picker
-
-    defaultInput: {
-        marginTop: 10,
-        marginBottom: 20,
-        width: '100%',
-        borderWidth: 1,
-        borderColor: '#d4d4d4',
-        borderRadius: 4,
-        padding: 5,
-    },
-
-    paymentContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginBottom: 150,
-    },
-
-    formPayment: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '50%',
-        height: 40,
-        borderWidth: 1,
-        borderColor: '#d4d4d4',
-    },
-    
-    installments: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '50%',
-        height: 40,
-        borderWidth: 1,
-        borderLeftWidth: 0,
-        borderColor: '#d4d4d4',
-    },
-
-
-    footer: {
-        display: "flex",
-        flexDirection: 'row',
-        backgroundColor: '#ddd',
-        padding: 15,
-        width: '100%',
-        position: 'absolute',
-        bottom: 0,
-        justifyContent: 'space-between',
-    },
-
-    footerTotal: {
-        display: 'flex',
-        width: '50%',
-        marginLeft: '5%',
-        flexDirection: 'row',
-    },
-
-    footerDiscount: {
-        width: '50%',
-        color: '#000',
-        fontSize: 18,
-    },
-    //
-    productContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        borderBottomWidth: 1,
-        borderColor: '#d4d4d4',
-        marginTop: 20,
-    },
-
-    productName: {
-        fontSize: 16,
-    },
-
-    productDescription: {
-        fontSize: 14,
-        color: '#ccc',
-        marginTop: 10,
-        marginBottom: 15,
-    },
-
-    sellBtn: {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        paddingHorizontal: 15,
-        paddingVertical: 5,
-        borderRadius: 4,
-        backgroundColor: '#0d6efd',
-        marginBottom: 10,
-    }
 })

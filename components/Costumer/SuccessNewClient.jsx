@@ -49,11 +49,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    verifyImage: {
-        width: 144,
-        height: 144,
-    },
-
     newClientSuccess: {
         marginTop: 20,
         fontSize: 24,

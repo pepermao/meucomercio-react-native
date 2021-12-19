@@ -4,9 +4,7 @@ import  { Picker }  from  '@react-native-picker/picker' ;
 import { MaterialIcons } from '@expo/vector-icons'
 import CurrencyInput from 'react-native-currency-input';
 
-
-
-const Stock = ({ navigation }) => {
+const Stock = () => {
     const [ product, setProduct ] = useState({
         codigo: 0,
         marca: ' '
@@ -179,10 +177,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomRightRadius: 5,
         borderTopRightRadius: 5,
-    },
-
-    textBtn: {
-        color: '#fff',
     },
 
     stockInput: {

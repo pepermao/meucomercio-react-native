@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-const Header = ({navigation}) => {
+const Header = () => {
     return (
         <View style={styles.header}>
             <View>
@@ -27,8 +27,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '700',
     },
-
-    icon: {
-        color: '#fff'
-    }
 })

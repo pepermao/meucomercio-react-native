@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import ProductEdit from '../../Pages/ProductEdit'
 import SuccessEdit from '../../components/Products/SuccessProductsEdit'
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import  { Picker }  from  '@react-native-picker/picker' ;
-import ProductsData from '../../Data/Products'
 import { FlatList } from "react-native-gesture-handler";
-import ProductsContainer from '../../components/CashRegister/CartProducts'
+import ProductsData from '../../Data/Products'
+import ProductsContainer from './CartProducts'
 
 const Cart = () => {
     return (
@@ -61,12 +61,6 @@ const Cart = () => {
 export default Cart
 
 const styles = StyleSheet.create({
-    formContainer: {
-        paddingTop: 20,
-        height: '100%',
-        paddingHorizontal: 20,
-    },
-
     cartTitle: {
         width: '100%',
         marginLeft: 20,
@@ -135,60 +129,4 @@ const styles = StyleSheet.create({
         borderLeftWidth: 0,
         borderColor: '#d4d4d4',
     },
-
-
-    footer: {
-        display: "flex",
-        flexDirection: 'row',
-        backgroundColor: '#ddd',
-        padding: 15,
-        width: '100%',
-        position: 'absolute',
-        bottom: 0,
-        justifyContent: 'space-between',
-    },
-
-    footerTotal: {
-        display: 'flex',
-        width: '50%',
-        marginLeft: '5%',
-        flexDirection: 'row',
-    },
-
-    footerDiscount: {
-        width: '50%',
-        color: '#000',
-        fontSize: 18,
-    },
-    //
-    productContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        borderBottomWidth: 1,
-        borderColor: '#d4d4d4',
-        marginTop: 20,
-    },
-
-    productName: {
-        fontSize: 16,
-    },
-
-    productDescription: {
-        fontSize: 14,
-        color: '#ccc',
-        marginTop: 10,
-        marginBottom: 15,
-    },
-
-    sellBtn: {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        paddingHorizontal: 15,
-        paddingVertical: 5,
-        borderRadius: 4,
-        backgroundColor: '#0d6efd',
-        marginBottom: 10,
-    }
 })

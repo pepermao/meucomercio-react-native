@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import MoneyInput from 'react-native-money-input'
+import { Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import  Modal  from "react-native-modal" ;
 
-
-const CloseCash = ({ visible, onRequestClose, closeModal }) => {
+const MoveCash = ({ visible, onRequestClose, closeModal, currentValue, setCurrentValue }) => {
+    let value = 0
+    
     return (
         <View>
             <Modal
@@ -17,7 +17,11 @@ const CloseCash = ({ visible, onRequestClose, closeModal }) => {
                 <View style={styles.modalView}>
                     <Text style={styles.modalTitle}>Acréscimo / Retirada do Caixa</Text>
                     <View style={styles.containerBalance}>
-                        <MoneyInput style={styles.modalMoneyInput} />
+                    <TextInput
+                            keyboardType="number-pad"
+                            placeholder="R$ 0.00"
+                            onChangeText={e => value = e}
+                            style={styles.modalMoneyInput} />
                     </View>
                     
                     <View style={styles.modalBtns}>
@@ -32,6 +36,7 @@ const CloseCash = ({ visible, onRequestClose, closeModal }) => {
 
                         <TouchableOpacity
                             onPress={() => {
+                                setCurrentValue(currentValue + parseInt(value))
                                 closeModal()
                             }}
                             style={styles.modalOkBtn}
@@ -45,14 +50,13 @@ const CloseCash = ({ visible, onRequestClose, closeModal }) => {
     )
 }
 
-export default CloseCash
+export default MoveCash
 
 const styles = StyleSheet.create({
     modalView: {
-        marginTop: 40,
+        marginTop: 0,
         backgroundColor: 'rgb(247, 247, 247)',
         width: '100%',
-        height: '42%',
         borderRadius: 10,
         paddingVertical: 15,
     },
@@ -85,6 +89,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         padding: 20,
+        paddingBottom: 0,
     },
 
     modalCancelBtn: {

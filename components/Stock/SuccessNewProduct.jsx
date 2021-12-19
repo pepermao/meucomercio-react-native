@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 export default function SuccessProduct({navigation}) {
@@ -22,7 +22,7 @@ export default function SuccessProduct({navigation}) {
         </View>
     )
 }
-//falta voltar para pagina de clientes
+
 const styles = StyleSheet.create({
     container: {
         height: '100%',
@@ -46,11 +46,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
-    },
-
-    verifyImage: {
-        width: 144,
-        height: 144,
     },
 
     newClientSuccess: {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import Cliente from '../../Pages/NewCostumer';
 import SuccessClient from '../../components/Costumer/SuccessNewClient'
 
